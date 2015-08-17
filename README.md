@@ -13,7 +13,7 @@ Run `composer update` to pull down the latest version of Postal Codes List.
 Edit `config/app.php` and add the `provider` and `filter`
 
     'providers' => [
-        Luismarcelino\PostalPt\FreguesiasServiceProvider::class,,
+        Luismarcelino\PostalPt\CodigosPostaisServiceProvider::class,
     ]
 
 Now add the alias.
