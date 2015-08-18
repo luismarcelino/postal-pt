@@ -49,7 +49,7 @@ class MigrationCommand extends Command {
         {
             $this->line('');
 
-            $this->info( "Creating migration and seeder..." );
+            $this->info( "Creating migration..." );
             if( $this->createMigration( 'postal_pt' ) )
             {
                 $this->line('');
@@ -112,21 +112,6 @@ class MigrationCommand extends Command {
                 }
 
                 $seconds++;
-            }
-        }
-
-
-        //Create the seeder
-        $seeder_file = $this->laravel->path."/../database/seeds/PostalPtSeeder.php";
-        $output = "<?php\n\n" .$app['view']->make('postal_pt::generators.seeder')->render();
-
-        if (!file_exists( $seeder_file )) {
-            $fs = fopen($seeder_file, 'x');
-            if ($fs) {
-                fwrite($fs, $output);
-                fclose($fs);
-            } else {
-                return false;
             }
         }
 

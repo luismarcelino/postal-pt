@@ -86,7 +86,7 @@ class SeedPostCodesCommand extends Command {
         $app = app();
 
         //Empty the 'postal_pt.table_name' table
-        DB::table(\Config::get('postal_pt.table_name'))->delete();
+        \DB::table(\Config::get('postal_pt.table_name'))->delete();
 
         //Get the postCodes from the CSV file
 		if (($handle = fopen(__DIR__ . '/todos_cp.txt', 'r')) !== FALSE) {
@@ -101,7 +101,7 @@ class SeedPostCodesCommand extends Command {
 						'concelho_id'	=>	$data[0].$data[1],
 						'localidade_id'	=>	$data[2],
 						'localidade'	=>	$data[3],
-						'arteria'		=>	$data[5].$data[6].$data[7].$data[8].$data[9],
+						'arteria'		=>	self::buildString(array_slice($data, 5, 5, true)),
 						'local'			=>	$data[10],
 						'troco'			=>	$data[11],
 						'postCode'		=>	$data[14].'-'.$data[15],
@@ -109,7 +109,7 @@ class SeedPostCodesCommand extends Command {
 					];
                     $this->line($postCode['arteria']);
 
-                    DB::table(\Config::get('postal_pt.table_name'))->insert($postCode);
+                    \DB::table(\Config::get('postal_pt.table_name'))->insert($postCode);
 
 				}
 		    }
@@ -119,4 +119,18 @@ class SeedPostCodesCommand extends Command {
         return true;
     }
 
+    static private function buildString (array $array) {
+        $string = '';
+        foreach ($array as $component){
+            if (strlen($component)>0){
+                if (strlen($string)>0){
+                    $string = $string.' '.$component;
+                }
+                else {
+                    $string = $component;
+                }
+            }
+        }
+        return $string;
+    }
 }

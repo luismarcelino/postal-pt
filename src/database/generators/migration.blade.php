@@ -12,7 +12,7 @@ class SetupPostCodesPtTable extends Migration {
 		// Creates the users table
 		Schema::create(\Config::get('postal_pt.table_name'), function($table)
 		{
-		    $table->integer('id')->index();
+		    $table->increments('id');
 		    $table->string('concelho_id',4)->nullable();
 			$table->integer('localidade_id')->unsigned()->nullable();
 		    $table->string('localidade', 255)->nullable();
