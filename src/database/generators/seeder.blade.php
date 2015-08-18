@@ -13,9 +13,9 @@ class PostalPtSeeder extends Seeder {
         DB::table(\Config::get('postal_pt.table_name'))->delete();
 
         //Get all of the countries
-        $postCodes = CodigosPostais::getList();
+        $postCodes = PostalPt::getList();
         foreach ($postCodes as $postCode){
-            DB::table(\Config::get('postal_pt.table_name'))->insert($postCode));
+            DB::table(\Config::get('postal_pt.table_name'))->insert($postCode);
         }
     }
 }

@@ -42,6 +42,7 @@ class CodigosPostais {
         //Get the postCodes from the CSV file
         if (sizeof($this->postCodes) == 0){
 			if (($handle = fopen(__DIR__ . '/todos_cp.txt', 'r')) !== FALSE) {
+				$this->postCodes = [];
 			    while (($data = fgetcsv($handle, 0, ';')) !== FALSE) {
 			        if (count($data)>1){
 						if (!is_numeric($data[0])){
