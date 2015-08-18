@@ -1,6 +1,6 @@
 use Illuminate\Database\Migrations\Migration;
 
-class SetupPostalPtTable extends Migration {
+class SetupPostCodesPtTable extends Migration {
 
 	/**
 	 * Run the migrations.

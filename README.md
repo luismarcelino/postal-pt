@@ -34,7 +34,7 @@ To generate the migration file use:
 
 This will generate the `<timestamp>_setup_post_codes_pt_table.php` migration and the `PostalPtSeeder.php` seeder. To run the migration, run as usual:
 
-    php artisan migrate:refresh
+    php artisan migrate
 
 To run just this seeder user the artisan command:
 
