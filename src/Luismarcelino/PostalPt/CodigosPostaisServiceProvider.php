@@ -74,7 +74,7 @@ class CodigosPostaisServiceProvider extends ServiceProvider {
             return new SeedPostCodesCommand($app);
         });
 
-        $this->commands('command.postal_pt');
+        $this->commands(['command.postal_pt.migration', 'command.postal_pt.seed']);
     }
 
     /**
