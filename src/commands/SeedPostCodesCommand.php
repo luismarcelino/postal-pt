@@ -104,10 +104,9 @@ class SeedPostCodesCommand extends Command {
 						'arteria'		=>	self::buildString(array_slice($data, 5, 5, true)),
 						'local'			=>	$data[10],
 						'troco'			=>	$data[11],
-						'postCode'		=>	$data[14].'-'.$data[15],
+						'post_code'		=>	$data[14].'-'.$data[15],
 						'designation'	=>	$data[16]
 					];
-                    $this->line($postCode['arteria']);
 
                     \DB::table(\Config::get('postal_pt.table_name'))->insert($postCode);
 

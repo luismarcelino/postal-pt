@@ -19,7 +19,7 @@ class SetupPostCodesPtTable extends Migration {
 			$table->string('arteria', 255)->nullable();
 			$table->string('local', 255)->nullable();
 			$table->string('troco', 255)->nullable();
-			$table->string('postCode', 8)->index();
+			$table->string('post_code', 8)->index();
 			$table->string('designation', 255);
 
 		    $table->primary('id');
