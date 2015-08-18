@@ -32,10 +32,10 @@ To generate the migration file use:
 
     $ php artisan postalpt:migration
 
-This will generate the `<timestamp>_setup_post_codes_pt_table.php` migration and the `PostalPtSeeder.php` seeder. To run the migration, run as usual:
+This will generate the `<timestamp>_setup_post_codes_pt_table.php` migration file. To run the migration, run as usual:
 
     php artisan migrate
 
-To run just this seeder user the artisan command:
+As the amount of the data to be inserted in the 'post_code_pt' table is large, you must use the follow artisan command (there is no 'db:seed' file):
 
-    php artisan db:seed --class=PostalPtSeeder
+    php artisan postalpt:seed
