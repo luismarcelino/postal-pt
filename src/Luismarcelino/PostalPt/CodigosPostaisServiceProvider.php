@@ -69,8 +69,12 @@ class CodigosPostaisServiceProvider extends ServiceProvider {
         {
             return new MigrationCommand($app);
         });
+        $this->app['command.postal_pt.seed'] = $this->app->share(function($app)
+        {
+            return new SeedPostCodesCommand($app);
+        });
 
-        $this->commands('command.postal_pt.migration');
+        $this->commands('command.postal_pt');
     }
 
     /**
